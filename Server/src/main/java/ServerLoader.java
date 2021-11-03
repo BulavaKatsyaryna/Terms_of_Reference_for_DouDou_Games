@@ -19,7 +19,7 @@ public class ServerLoader {
         }
     }
 
-    private static void end() {
+    public static void end() {
         try {
             server.close();
         } catch (Exception e) {
@@ -31,7 +31,7 @@ public class ServerLoader {
         while (true) {
             try {
                 Socket client = server.accept();
-                new ClientHandler(client);
+                new ClientHandler(client).start();
             } catch (Exception e) {
                 e.printStackTrace();
             }

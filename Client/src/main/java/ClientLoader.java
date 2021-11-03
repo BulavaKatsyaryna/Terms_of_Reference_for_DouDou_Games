@@ -1,3 +1,4 @@
+import java.io.DataOutputStream;
 import java.net.Socket;
 
 public class ClientLoader {
@@ -6,6 +7,8 @@ public class ClientLoader {
 
     public static void main(String[] args) {
         connect();
+        handle();
+        end();
     }
 
     private static void connect() {
@@ -17,10 +20,19 @@ public class ClientLoader {
     }
 
     private static void handle() {
-
+        try {
+            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+            //message
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static void end() {
-
+        try {
+            socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
