@@ -15,20 +15,22 @@ public class ClientHandler extends Thread {
     @Override
     public void run() {
         while (true) {
-            try {
-                DataInputStream dis = new DataInputStream(client.getInputStream());
-                if (dis.available() > 0) {
-                    int message = dis.readInt();
-                    System.out.println(message);
-                    ServerLoader.end();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            readData();
             try {
                 Thread.sleep(10);
             } catch (InterruptedException ix) {
             }
+        }
+    }
+
+    private void readData() {
+        try {
+            DataInputStream dis = new DataInputStream(client.getInputStream());
+            if (dis.available() <= 0);
+//            return;
+            short id = dis.readShort();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

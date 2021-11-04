@@ -13,13 +13,6 @@ public class Authorization extends MessageSendingCoordinator{
 
     private String nickname;
 
-//    public Authorization() {
-//    }
-//
-//    public Authorization(String nickname) {
-//        this.nickname = nickname;
-//    }
-
     @Override
     public short getId() {
         return 1;
@@ -27,10 +20,10 @@ public class Authorization extends MessageSendingCoordinator{
 
     @Override
     public void write(DataOutputStream dos) throws IOException {
-        dos.writeUTF(nickname);
     }
 
     @Override
     public void read(DataInputStream dis) throws IOException {
+        nickname = dis.readUTF();
     }
 }
