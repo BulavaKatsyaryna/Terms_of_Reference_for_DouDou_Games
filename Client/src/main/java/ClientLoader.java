@@ -22,7 +22,8 @@ public class ClientLoader {
     private static void handle() {
         try {
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-            //message
+            dos.writeInt(1212);
+            dos.flush();
         } catch (Exception e) {
             e.printStackTrace();
         }
