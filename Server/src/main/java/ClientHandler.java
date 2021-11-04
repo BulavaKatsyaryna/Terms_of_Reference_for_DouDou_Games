@@ -28,6 +28,7 @@ public class ClientHandler extends Thread {
             DataInputStream dis = new DataInputStream(client.getInputStream());
             if (dis.available() <= 0);
 //            return;
+
             short id = dis.readShort();
         } catch (Exception e) {
             e.printStackTrace();
