@@ -7,7 +7,7 @@ import java.io.IOException;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class Authorization extends MessageSendingCoordinator{
+public class Authorization extends MessageSendingCoordinator {
 
     private String nickname;
 
@@ -24,7 +24,7 @@ public class Authorization extends MessageSendingCoordinator{
     }
 
     @Override
-    public void write(DataOutputStream dos) throws IOException {
+    public void write(DataOutputStream dos) {
     }
 
     @Override
@@ -38,7 +38,9 @@ public class Authorization extends MessageSendingCoordinator{
         System.out.println("My nickname is: " + nickname);
         try {
             Thread.sleep(2000);
-        } catch (Exception e) {}
+        } catch (InterruptedException ie) {
+            ie.printStackTrace();
+        }
         ServerLoader.end();
     }
 }

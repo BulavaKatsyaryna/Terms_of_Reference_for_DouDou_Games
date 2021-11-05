@@ -1,8 +1,10 @@
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.DataInputStream;
 import java.net.Socket;
 
+//@EqualsAndHashCode(callSuper = true)
 @Data
 public class ClientHandler extends Thread {
 
@@ -17,9 +19,9 @@ public class ClientHandler extends Thread {
         this.nickname = nickname;
     }
 
-    //    public ClientHandler(Socket client) {
-//        this.client = client;
-//    }
+        public ClientHandler(Socket client) {
+        this.client = client;
+    }
 
     @Override
     public void run() {
@@ -27,7 +29,8 @@ public class ClientHandler extends Thread {
             readData();
             try {
                 Thread.sleep(10);
-            } catch (InterruptedException ix) {
+            } catch (InterruptedException ie) {
+                ie.printStackTrace();
             }
         }
     }
@@ -40,6 +43,9 @@ public class ClientHandler extends Thread {
             short id = dis.readShort();
             MessageSendingCoordinator messageSendingCoordinator = MessageManager.getMessageSendingCoordinator(id);
             messageSendingCoordinator.setSocket(client);
+//            if (messageSendingCoordinator != null) {
+//                messageSendingCoordinator.setSocket(client);
+//            }
             messageSendingCoordinator.read(dis);
             messageSendingCoordinator.handle();
         } catch (Exception e) {
