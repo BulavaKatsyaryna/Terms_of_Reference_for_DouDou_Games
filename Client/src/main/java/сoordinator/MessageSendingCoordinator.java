@@ -11,4 +11,6 @@ public abstract class MessageSendingCoordinator {
         public abstract void write(DataOutputStream dos) throws IOException;
 
         public abstract void read(DataInputStream dis) throws IOException;
+
+        public abstract void handle();
 }

@@ -1,6 +1,5 @@
 package сoordinator;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.io.DataInputStream;
@@ -8,34 +7,38 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 @NoArgsConstructor
-@AllArgsConstructor
-public class Authorization extends MessageSendingCoordinator{
+public class Message extends MessageSendingCoordinator{
 
-    private String nickname;
+    private String sender;
 
-//    public Authorization() {
+    private String message;
+
+//    public Message() {
 //    }
-//
-//    public Authorization(String nickname) {
-//        this.nickname = nickname;
-//    }
+
+    public Message(String sender, String message) {
+        this.sender = sender;
+        this.message = message;
+    }
 
     @Override
     public short getId() {
-        return 1;
+        return 2;
     }
 
     @Override
     public void write(DataOutputStream dos) throws IOException {
-        dos.writeUTF(nickname);
+        dos.writeUTF(message);
     }
 
     @Override
     public void read(DataInputStream dis) throws IOException {
+        sender = dis.readUTF();
+        message = dis.readUTF();
     }
 
     @Override
     public void handle() {
-
+        System.out.println(String.format("[%s] %s", sender, message));
     }
 }
