@@ -1,5 +1,6 @@
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,12 +22,16 @@ public class ServerLoader {
                 ClientHandler handler = new ClientHandler(client);
                 handler.start();
                 handlers.put(client, handler);
+            } catch (SocketException se) {
+                return;
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
                 Thread.sleep(10);
-            } catch (InterruptedException ix) {}
+            } catch (InterruptedException ie) {
+                ie.printStackTrace();
+            }
         }
     }
 

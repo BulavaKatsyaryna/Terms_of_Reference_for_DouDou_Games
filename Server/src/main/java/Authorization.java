@@ -34,7 +34,11 @@ public class Authorization extends MessageSendingCoordinator{
 
     @Override
     public void handle() {
-        //problem with packages
         ServerLoader.getHandler(getSocket()).setNickname(nickname);
+        System.out.println("My nickname is: " + nickname);
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {}
+        ServerLoader.end();
     }
 }
