@@ -1,15 +1,18 @@
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.DataInputStream;
 import java.net.Socket;
 
-//@EqualsAndHashCode(callSuper = true)
 @Data
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class ClientHandler extends Thread {
 
     private final Socket client;
-    private String nickname = "nickname";
+
+    private String nickname = "unknown nickname";
 
     public String getNickname() {
         return nickname;

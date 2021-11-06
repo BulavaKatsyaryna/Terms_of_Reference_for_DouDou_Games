@@ -35,12 +35,6 @@ public class Authorization extends MessageSendingCoordinator {
     @Override
     public void handle() {
         ServerLoader.getHandler(getSocket()).setNickname(nickname);
-        System.out.println("My nickname is: " + nickname);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException ie) {
-            ie.printStackTrace();
-        }
-        ServerLoader.end();
+        System.out.println("Authorized new socket with nickname " + nickname);
     }
 }

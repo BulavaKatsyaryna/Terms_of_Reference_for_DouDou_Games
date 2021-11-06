@@ -7,6 +7,7 @@ public class MessageManager {
 
     static {
         managers.put((short) 1, Authorization.class);
+        managers.put((short) 2, Message.class);
     }
 
     public static MessageSendingCoordinator getMessageSendingCoordinator(short id) {
@@ -17,14 +18,4 @@ public class MessageManager {
             return null;
         }
     }
-//
-//    public static void read(short id, DataInputStream dis) {
-//        try {
-//            //Добавлен .getDeclaredConstructor(), голый .newInstance() - депрекейтед
-//            MessageSendingCoordinator messageSendingCoordinator = managers.get(id).getDeclaredConstructor().newInstance();
-//            messageSendingCoordinator.read(dis);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
