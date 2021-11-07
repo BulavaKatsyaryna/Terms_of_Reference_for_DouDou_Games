@@ -38,10 +38,6 @@ public class ClientLoader {
         }
     }
 
-//    private static void handle() {
-//        sendMessage(new Authorization("Imechko"));
-//    }
-
     private static void handle() {
         Thread handler = new Thread() {
 
@@ -64,8 +60,6 @@ public class ClientLoader {
                             messageSendingCoordinator.read(dis);
                             messageSendingCoordinator.handle();
                         }
-//                        messageSendingCoordinator.read(dis);
-//                        messageSendingCoordinator.handle();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

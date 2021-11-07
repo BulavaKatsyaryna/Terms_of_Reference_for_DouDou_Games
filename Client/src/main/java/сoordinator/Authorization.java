@@ -9,16 +9,9 @@ import java.io.IOException;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class Authorization extends MessageSendingCoordinator{
+public class Authorization extends MessageSendingCoordinator {
 
     private String nickname;
-
-//    public Authorization() {
-//    }
-//
-//    public Authorization(String nickname) {
-//        this.nickname = nickname;
-//    }
 
     @Override
     public short getId() {
@@ -36,6 +29,5 @@ public class Authorization extends MessageSendingCoordinator{
 
     @Override
     public void handle() {
-
     }
 }

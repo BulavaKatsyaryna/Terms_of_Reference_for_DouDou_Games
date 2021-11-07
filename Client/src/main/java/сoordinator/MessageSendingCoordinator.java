@@ -6,11 +6,11 @@ import java.io.IOException;
 
 public abstract class MessageSendingCoordinator {
 
-        public abstract short getId();
+    public abstract short getId();
 
-        public abstract void write(DataOutputStream dos) throws IOException;
+    public abstract void write(DataOutputStream dos) throws IOException;
 
-        public abstract void read(DataInputStream dis) throws IOException;
+    public abstract void read(DataInputStream dis) throws IOException;
 
-        public abstract void handle();
+    public abstract void handle();
 }

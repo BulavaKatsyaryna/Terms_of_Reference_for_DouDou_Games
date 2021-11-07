@@ -7,14 +7,11 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 @NoArgsConstructor
-public class Message extends MessageSendingCoordinator{
+public class Message extends MessageSendingCoordinator {
 
     private String sender;
 
     private String message;
-
-//    public Message() {
-//    }
 
     public Message(String sender, String message) {
         this.sender = sender;
