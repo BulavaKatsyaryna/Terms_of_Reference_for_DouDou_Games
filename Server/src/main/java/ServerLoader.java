@@ -34,7 +34,6 @@ public class ServerLoader {
         }
     }
 
-//    The server does not shutdown when you type /end. TO CORRECT
     private static void readChat() {
         Scanner sc = new Scanner(System.in);
         while (true) {
@@ -50,7 +49,9 @@ public class ServerLoader {
             } else
                 try {
                     Thread.sleep(10);
-                } catch (InterruptedException ie) {}
+                } catch (InterruptedException ie) {
+                    ie.printStackTrace();
+                }
         }
     }
 

@@ -9,10 +9,6 @@ public class ServerHandler extends Thread {
 
     private final ServerSocket server;
 
-//    ServerHandler(ServerSocket server) {
-//        this.server = server;
-//    }
-
     @Override
     public void run() {
         while (true) {

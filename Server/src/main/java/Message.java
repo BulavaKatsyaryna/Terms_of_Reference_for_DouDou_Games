@@ -11,9 +11,6 @@ public class Message extends MessageSendingCoordinator{
 
     private String message;
 
-//    public Message() {
-//    }
-
     public Message(String sender, String message) {
         this.sender = sender;
         this.message = message;

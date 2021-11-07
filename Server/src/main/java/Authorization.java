@@ -11,13 +11,6 @@ public class Authorization extends MessageSendingCoordinator {
 
     private String nickname;
 
-//    public Authorization() {
-//    }
-//
-//    public Authorization(String nickname) {
-//        this.nickname = nickname;
-//    }
-
     @Override
     public short getId() {
         return 1;

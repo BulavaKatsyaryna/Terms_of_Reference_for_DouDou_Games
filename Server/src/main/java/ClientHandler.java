@@ -45,10 +45,9 @@ public class ClientHandler extends Thread {
                 return;
             short id = dis.readShort();
             MessageSendingCoordinator messageSendingCoordinator = MessageManager.getMessageSendingCoordinator(id);
-            messageSendingCoordinator.setSocket(client);
-//            if (messageSendingCoordinator != null) {
-//                messageSendingCoordinator.setSocket(client);
-//            }
+            if (messageSendingCoordinator != null) {
+                messageSendingCoordinator.setSocket(client);
+            }
             messageSendingCoordinator.read(dis);
             messageSendingCoordinator.handle();
         } catch (Exception e) {
